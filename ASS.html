@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaa's Project</title>
+    <link rel="stylesheet" href="styling.css">
+</head>
+<body id="body-id">
+    <nav class="navbar">
+    <div class="logo">Alaa Portfolio</div>
+    <ul class="nav-links">
+        <li>User Guide</li>
+        <li> Support</li>
+        <li> Privacy</li>
+    </ul>
+</nav>
+
+    <div class="card" id="card-id">
+        <img src="ASS.png" id="profile-img" onmouseover="mOver(this)" onmouseout="mOut(this)">
+
+        <h2 id="title-id">Alaa's Website</h2>
+        
+        <p class="intro-text" id="p-id">
+            This project is a dynamic web application developed to showcase advanced 
+            front-end techniques, specifically focusing on JavaScript DOM manipulation 
+            and Event Listeners like Click and MouseOver to improve user experience.
+        </p>
+
+        <button class="btn" onclick="toggleDarkMode(); changeBtnColor(this)">Toggle Dark Mode</button>
+        
+        <div id="login-section">
+            <button class="btn" style="background:#008cba" onclick="changeBtnColor(this)">Login</button>
+            <p style="cursor:pointer; text-decoration:underline; font-size:13px;" onclick="showSignUp()">Not a member? Sign Up</p>
+        </div>
+
+        <div id="signup-section" style="display:none;">
+            <input type="text" placeholder="Username" style="width:80%; padding:8px; margin:5px;"><br>
+            <button class="btn" style="background:#28a745" onclick="changeBtnColor(this)">Register</button>
+            <p style="cursor:pointer; text-decoration:underline; font-size:13px;" onclick="showLogin()">Back to Login</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            var body = document.getElementById("body-id");
+            var card = document.getElementById("card-id");
+            var pText = document.getElementById("p-id");
+            var title = document.getElementById("title-id");
+
+            if (body.style.backgroundColor === "rgb(26, 26, 26)") {
+                body.style.background = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
+                body.style.backgroundColor = ""; 
+                card.style.backgroundColor = "white";
+                pText.style.color = "#555";
+                title.style.color = "#333";
+            } else {
+
+                body.style.background = "none"; 
+                body.style.backgroundColor = "#1a1a1a";
+                card.style.backgroundColor = "#333";
+                pText.style.color = "#ccc";
+                title.style.color = "#fff";
+            }
+        }
+
+        function changeBtnColor(btn) {
+            btn.style.backgroundColor = "red";
+            btn.style.color = "white";
+        }
+
+        function mOver(obj) {
+            obj.style.transform = "scale(1.1)";
+            obj.style.borderColor = "red";
+        }
+        function mOut(obj) {
+            obj.style.transform = "scale(1)";
+            obj.style.borderColor = "#764ba2";
+        }
+
+        function showSignUp() {
+            document.getElementById("login-section").style.display = "none";
+            document.getElementById("signup-section").style.display = "block";
+        }
+        function showLogin() {
+            document.getElementById("login-section").style.display = "block";
+            document.getElementById("signup-section").style.display = "none";
+        }
+    </script>
+</body>
+</html>

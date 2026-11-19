@@ -1,0 +1,26 @@
+import string
+
+def simple_substitution_cipher(text, key, mode='encrypt'):
+    alphabet = string.ascii_lowercase
+    
+    if mode == 'encrypt':
+        table = str.maketrans(alphabet, key)
+        return text.lower().translate(table)
+        
+    elif mode == 'decrypt':
+        inverse_table = str.maketrans(key, alphabet)
+        return text.lower().translate(inverse_table)
+        
+    else:
+        return "Invalid mode. Please choose 'encrypt' or 'decrypt'."
+
+text = "message"
+key = "securityabdfghjklmnopqvwxz"
+
+encrypted_text = simple_substitution_cipher(text, key, mode='encrypt')
+print("Encrypted text:", encrypted_text)
+
+
+decrypted_text = simple_substitution_cipher(encrypted_text, key, mode='decrypt')
+print("Decrypted text:", decrypted_text)
+
